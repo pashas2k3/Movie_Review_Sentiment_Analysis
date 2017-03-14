@@ -1,0 +1,11 @@
+numpy
+scipy
+scikit-learn==0.17
+nltk
+pandas
+beautifulsoup4
+html5lib
+gensim==0.12.3
+chardet
+tensorflow==0.12.1
+Counter
