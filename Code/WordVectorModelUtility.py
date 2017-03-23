@@ -45,8 +45,7 @@ def TrainWordVectorModel(model_short_name, labeledData, unlabeledData):
     for review in unlabeledData["review"]:
         sentences += KaggleWord2VecUtility.review_to_sentences(review, tokenizer)
 
-    # Set values for various parameters
-    # TODO: Explain the rationale for selecting the different parameters
+    # Set values for various parameters (Using original paper and gensim doc as reference)
     num_features = 300    # Word vector dimensionality
     min_word_count = 40   # Minimum word count
     num_workers = 4       # Number of threads to run in parallel

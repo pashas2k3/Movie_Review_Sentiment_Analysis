@@ -5,12 +5,7 @@ from KaggleWord2VecUtility import KaggleWord2VecUtility
 import logging
 import numpy as np
 import pandas as pd
-from nltk.corpus import stopwords
-import nltk.data
-import json
-import pickle
 from random import shuffle
-
 
 def LoadReviewVectorModel(model_short_name, DM):
     suffix = "_dbow";
@@ -60,14 +55,11 @@ def TrainReviewVectorModel(model_short_name, labeledData, \
     # create cache if the file doesn't already exists
     sentences = []  # Initialize an empty list of sentences
 
-    # Load the punkt tokenizer
-    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     print "Parsing sentences..."
     sentences = getCleanLabeledReviews(labeledData, sentences);
     sentences = getCleanLabeledReviews(unlabeledData, sentences);
 
-    # Set values for various parameters
-    # TODO: Explain the rationale for selecting the different parameters
+    # Set values for various parameters (Using original paper and gensim doc as reference)
     num_features = 300    # Word vector dimensionality
     min_word_count = 40   # Minimum word count
     num_workers = 4       # Number of threads to run in parallel

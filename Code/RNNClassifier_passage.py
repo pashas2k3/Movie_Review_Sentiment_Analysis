@@ -31,7 +31,7 @@ def TrainTestRNN(trainData, testData):
 
     model = RNN(layers=layers, cost='bce', updater=Adadelta(lr=0.5))
     trY = np.array(trainData['sentiment']);
-    model.fit(trX, trY , n_epochs=10)#3#10
+    model.fit(trX, trY , n_epochs=10)
     
     print ("Prediction error on training set");
     pr_trX = model.predict(trX).flatten()
